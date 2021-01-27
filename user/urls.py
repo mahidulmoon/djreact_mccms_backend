@@ -1,6 +1,6 @@
 from django.urls import path,include
 from rest_framework import routers
-from .views import UserProfileViewSet,PreviligedUser
+from .views import UserProfileViewSet,PreviligedUser,CustomObtainAuthToken
 
 
 router = routers.DefaultRouter()
@@ -10,4 +10,5 @@ router.register('previligeduser',PreviligedUser)
 
 urlpatterns = [
     path('',include(router.urls)),
+    path('login',CustomObtainAuthToken.as_view()),
 ]
