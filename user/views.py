@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import UserProfileSerializer
+from .serializers import UserProfileSerializer,UserSerializer
 from .models import UserProfile
+from django.contrib.auth.models import User
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from .pagination import ListPagination
@@ -16,3 +17,9 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     filter_backends = [SearchFilter]
     search_fields = ('id','phone')
 
+class PreviligedUser(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    pagination_class = ListPagination
+    filter_backends = [SearchFilter]
+    search_fields = ('id','email','username')
