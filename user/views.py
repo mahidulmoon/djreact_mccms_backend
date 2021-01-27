@@ -18,7 +18,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     search_fields = ('id','phone')
 
 class PreviligedUser(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = User.objects.filter(is_staff=True)
     serializer_class = UserSerializer
     pagination_class = ListPagination
     filter_backends = [SearchFilter]
