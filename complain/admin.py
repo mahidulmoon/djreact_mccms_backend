@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Complain_table
+from .models import Complain_table,Ratings
 # Register your models here.
 
 class ComplainShow(admin.ModelAdmin):
@@ -7,3 +7,4 @@ class ComplainShow(admin.ModelAdmin):
 
 
 admin.site.register(Complain_table,ComplainShow)
+admin.site.register(Ratings)
