@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'user',
+    'notice',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
