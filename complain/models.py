@@ -18,13 +18,8 @@ class Complain_table(models.Model):
 
 	def avg_rating(self):
 		sum = 0
-		ratings = Ratings.objects.filter(complain_id=self)
-		for rating in ratings:
-			sum+=rating.rating
-		if len(ratings)>0:
-			return sum/len(ratings)
-		else:
-			return 0
+		ratings = Ratings.objects.filter(complain_id=self).count()
+		return ratings
 
 
 
@@ -32,6 +27,6 @@ class Complain_table(models.Model):
 class Ratings(models.Model):
 	user_id = models.ForeignKey(User,on_delete=models.CASCADE)
 	complain_id = models.ForeignKey(Complain_table,on_delete=models.CASCADE)
-	rating = models.DecimalField(max_digits=2,decimal_places=1,validators=[
-        MinValueValidator(1),MaxValueValidator(5)
+	rating = models.IntegerField(validators=[
+        MinValueValidator(1),MaxValueValidator(1)
     ])
