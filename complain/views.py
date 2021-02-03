@@ -13,3 +13,8 @@ class ComplainViewSet(viewsets.ModelViewSet):
     pagination_class = NumberOfComplain
     def create(self, request):
         return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+class ComplainPostViewSet(viewsets.ModelViewSet):
+    queryset = Complain_table.objects.all()
+    serializer_class = ComplainSerializer

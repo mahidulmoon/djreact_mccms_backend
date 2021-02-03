@@ -11,7 +11,7 @@ class Complain_table(models.Model):
 	complain_subject=models.CharField(max_length=100)
 	complain=models.TextField()
 	status = models.CharField(max_length=50,default="pending request")
-	image_field=models.ImageField(upload_to='files/',default='files/logo512.png')
+	image_field=models.FileField(upload_to='files/',default='files/logo512.png')
 	created_at=models.DateTimeField(auto_now_add=True,blank=True)
 
 	def __str__(self):
