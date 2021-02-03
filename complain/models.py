@@ -13,7 +13,6 @@ class Complain_table(models.Model):
 	status = models.CharField(max_length=50,default="pending request")
 	image_field=models.FileField(upload_to='files/',default='files/logo512.png')
 	created_at=models.DateTimeField(auto_now_add=True,blank=True)
-	user = models.ForeignKey(User,on_delete=models.CASCADE)
 
 	def __str__(self):
 		return self.complain_subject

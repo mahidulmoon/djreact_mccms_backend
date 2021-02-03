@@ -5,6 +5,7 @@ from .serializers import ComplainSerializer
 from .pagination import NumberOfComplain
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 # Create your views here.
 
 
@@ -19,4 +20,5 @@ class ComplainViewSet(viewsets.ModelViewSet):
 class ComplainPostViewSet(viewsets.ModelViewSet):
     queryset = Complain_table.objects.all()
     serializer_class = ComplainSerializer
+    authentication_classes = [TokenAuthentication, ]
     permission_classes = (IsAuthenticated,)
