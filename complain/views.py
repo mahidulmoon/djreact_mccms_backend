@@ -22,3 +22,8 @@ class ComplainPostViewSet(viewsets.ModelViewSet):
     serializer_class = ComplainSerializer
     authentication_classes = [TokenAuthentication, ]
     permission_classes = (IsAuthenticated,)
+
+    def list(self,request):
+        queryset = Complain_table.objects.filter(complainer_email=request.user.email)
+        serializer = ComplainSerializer(queryset,many=True)
+        return Response(serializer.data)
