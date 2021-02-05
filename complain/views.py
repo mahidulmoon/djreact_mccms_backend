@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets,status
-from .models import Complain_table
-from .serializers import ComplainSerializer
+from .models import Complain_table,Ratings
+from .serializers import ComplainSerializer,ComplaineRatingSerializer
 from .pagination import NumberOfComplain
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
@@ -27,3 +27,10 @@ class ComplainPostViewSet(viewsets.ModelViewSet):
         queryset = Complain_table.objects.filter(complainer_email=request.user.email)
         serializer = ComplainSerializer(queryset,many=True)
         return Response(serializer.data)
+
+
+class ComplainRatingViewSet(viewsets.ModelViewSet):
+    queryset = Ratings.objects.all()
+    serializer_class = ComplaineRatingSerializer
+    # authentication_classes = [TokenAuthentication, ]
+    # permission_classes = (IsAuthenticated,)
