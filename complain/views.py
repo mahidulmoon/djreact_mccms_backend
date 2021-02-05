@@ -32,5 +32,5 @@ class ComplainPostViewSet(viewsets.ModelViewSet):
 class ComplainRatingViewSet(viewsets.ModelViewSet):
     queryset = Ratings.objects.all()
     serializer_class = ComplaineRatingSerializer
-    # authentication_classes = [TokenAuthentication, ]
-    # permission_classes = (IsAuthenticated,)
+    authentication_classes = [TokenAuthentication, ]
+    permission_classes = (IsAuthenticated,)
