@@ -13,3 +13,10 @@ class ComplaineRatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ratings
         fields = ('user_id','complain_id','rating')
+
+
+
+class StatusUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Complain_table
+        fields = ('id','status')
