@@ -21,7 +21,7 @@ def adminDashShort(requst):
     pending_complains = Complain_table.objects.filter(status="pending request").count()
     approve_complains = Complain_table.objects.filter(status="approved").count()
     solved_complains = Complain_table.objects.filter(status="solved").count()
-    notices = Complain_table.objects.all().count()
+    notices = Notice.objects.all().count()
     normal_user = User.objects.all().count()
     prev_user = User.objects.filter(is_staff=True).count()
     admin_user = User.objects.filter(is_superuser=True).count()
