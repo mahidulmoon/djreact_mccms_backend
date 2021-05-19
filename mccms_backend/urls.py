@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path,include
 from . import settings
 from django.conf.urls.static import static
+from covernewz.views import CoverNewzList
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user/',include('user.urls')),
     path('api/notice/',include('notice.urls')),
     path('api/complain/',include('complain.urls')),
+    path('api/home/',CoverNewzList),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
