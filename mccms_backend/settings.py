@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'user',
     'notice',
     'complain',
+    'covernewz',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
