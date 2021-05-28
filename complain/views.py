@@ -65,6 +65,11 @@ class ComplainRatingViewSet(viewsets.ModelViewSet):
     authentication_classes = [TokenAuthentication, ]
     permission_classes = (IsAuthenticated,)
 
+    def list(self,request):
+        queryset = Ratings.objects.filter(user_id=request.user_id,complain_id=request.complain_id)
+        serializer = ComplaineRatingSerializer(queryset,many=True)
+        return Response(serializer.data)
+
 
 
 
