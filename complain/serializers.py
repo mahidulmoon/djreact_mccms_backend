@@ -12,7 +12,7 @@ class ComplainSerializer(serializers.ModelSerializer):
 class ComplaineRatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ratings
-        fields = ('user_id','complain_id','rating')
+        fields = ('id','user_id','complain_id','rating')
 
 
 
