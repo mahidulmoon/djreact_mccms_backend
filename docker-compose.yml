@@ -3,6 +3,9 @@ version: '3'
 services: 
    web:
        command: python manage.py runserver 0.0.0.0:9000
+       volumes:
+            - .:/app
+            - ./data/web:/vol/web
        build:
          context: .
        ports:
