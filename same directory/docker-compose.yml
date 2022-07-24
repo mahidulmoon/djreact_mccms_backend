@@ -1,0 +1,22 @@
+version: '3'
+
+services: 
+   ipdc_backend_web:
+       #command: python manage.py runserver 0.0.0.0:8000
+       #command: gunicorn ipdc.wsgi:application --bind 0.0.0.0:8000 --timeout 9000
+       volumes:
+         - .:/app
+         - ./data/web:/vol/web
+       build:
+         context: .
+       ports:
+         - "8008:8000"
+   nginx:
+       build: ./nginx
+       volumes:
+         - .:/app
+         - ./data/web:/vol/web
+       ports:
+         - "9004:80"
+       depends_on:
+         - ipdc_backend_web
